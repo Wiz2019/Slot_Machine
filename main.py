@@ -33,6 +33,16 @@ def get_slot_machine_spim(rows, cols, symbols):
 
     return columns
 
+def print_slot_machine(columns):
+    for row in range(len(columns[0])):
+        for i,column in enumerate(columns):
+            if i!=len(columns)-1:
+                print(column[row], end=" | ")
+            else:
+                print(column[row], end="")
+        
+        print()
+
 def deposit():
     while True:
         amount = input("what would you like to deposit? $")
@@ -90,6 +100,8 @@ def main():
 
     print(f"You are betting ${bet} on {lines} lines . Total bet is equal to: ${total_bet}")
 
+    slots = get_slot_machine_spim(ROWS,COLS,symbol_count)
+    print_slot_machine(slots)
 
 main()
 
